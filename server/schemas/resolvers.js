@@ -13,10 +13,19 @@ const resolvers = {
 
     posts: async (parent, { username }) => {
       const params = username ? { username } : {};
-      return Post.find(params).sot({ createdAt: -1 });
+      return Post.find(params).sort({ createdAt: -1 });
     },
 
     post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
+    },
+
+    trips: async (parent, { tripname }) => {
+      const params = tripname ? { tripname } : {};
+      return Trip.find(params);
+    },
+
+    trip: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
   },
