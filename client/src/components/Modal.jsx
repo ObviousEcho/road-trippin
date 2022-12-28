@@ -15,13 +15,11 @@ const Modal = ({ isVisible, onClose }) => {
     const signup = document.getElementById("signup");
 
     if (isChecked) {
-      console.log("Input is checked");
       login.setAttribute("class", "hidden");
       signup.removeAttribute("class");
     }
 
     if (!isChecked) {
-      console.log("Input is NOT checked");
       signup.setAttribute("class", "hidden");
       login.removeAttribute("class");
     }
