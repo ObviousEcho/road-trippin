@@ -12,6 +12,7 @@ function App() {
         </h1>
         <button
           className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center mr-5"
+          // onClick required to display modal, place on link in navbar, the above code can be deleted!
           onClick={() => setShowModal(true)}
         >
           Submit
