@@ -1,0 +1,22 @@
+[
+  {
+    "username": "Andrew Stehno",
+    "email": "andrew@test.com",
+    "password": "test1234"
+  },
+  {
+    "username": "James Lewis",
+    "email": "james@test.com",
+    "password": "test1234"
+  },
+  {
+    "username": "Moises Valerin",
+    "email": "moises@test.com",
+    "password": "test1234"
+  },
+  {
+    "username": "Mark Kalmar",
+    "email": "mark@test.com",
+    "password": "test1234"
+  }
+]
