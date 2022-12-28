@@ -1,5 +1,6 @@
 import React from "react";
-import "./style.css";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 const Modal = ({ isVisible, onClose }) => {
   if (!isVisible) return null;
@@ -10,12 +11,21 @@ const Modal = ({ isVisible, onClose }) => {
 
   const handleToggle = () => {
     let isChecked = document.getElementById("toggle").checked;
+    const login = document.getElementById("login");
+    const signup = document.getElementById("signup");
+
     if (isChecked) {
       console.log("Input is checked");
-    } else {
-      console.log("Input is NOT checked");
+      login.setAttribute("class", "hidden");
+      signup.removeAttribute("class");
     }
-  }
+
+    if (!isChecked) {
+      console.log("Input is NOT checked");
+      signup.setAttribute("class", "hidden");
+      login.removeAttribute("class");
+    }
+  };
 
   return (
     <div
@@ -45,6 +55,12 @@ const Modal = ({ isVisible, onClose }) => {
                 Login/Sign Up
               </span>
             </label>
+          </div>
+          <div id="login">
+            <Login />
+          </div>
+          <div id="signup" className="hidden">
+            <SignUp />
           </div>
         </div>
       </div>
