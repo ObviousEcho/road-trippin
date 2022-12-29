@@ -1,12 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Auth from "../utils/auth";
 
 const AppNavbar = () => {
   return (
     <nav className="bg-dark py-4 px-6 flex justify-between items-center">
       <div className="flex items-center">
-        <Link to="/">
+        <a href="/">
           <img
             src="/client/public/Road Trippin'-.png"
             alt="Logo"
@@ -15,21 +14,21 @@ const AppNavbar = () => {
           <span className="text-white font-bold text-2xl ml-2">
             Road Trippin'
           </span>
-        </Link>
+        </a>
       </div>
       <div className="flex items-center space-x-4">
-        <Link className="text-white font-bold py-2 px-4 rounded-full" to="/">
+        <a className="text-white font-bold py-2 px-4 rounded-full" href="/">
           Plan Your Trip
-        </Link>
+        </a>
         {/* if user is logged in show saved books and logout */}
         {Auth.loggedIn() ? (
           <>
-            <Link
+            <a
               className="text-white font-bold py-2 px-4 rounded-full"
-              to="/saved"
+              href="/saved"
             >
               See Your Trips
-            </Link>
+            </a>
             <button
               className="text-white font-bold py-2 px-4 rounded-full"
               onClick={Auth.logout}
@@ -38,12 +37,12 @@ const AppNavbar = () => {
             </button>
           </>
         ) : (
-          <Link
+          <a
             className="text-white font-bold py-2 px-4 rounded-full"
-            to="/login"
+            href="/login"
           >
             Login/Sign Up
-          </Link>
+          </a>
         )}
       </div>
     </nav>
