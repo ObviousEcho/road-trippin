@@ -7,11 +7,11 @@ const AppNavbar = () => {
       <div className="flex items-center">
         <a href="/">
           <img
-            src="/client/public/Road Trippin'-.png"
+            src="/client/public/RTNavbarLogo.png"
             alt="Logo"
             className="w-8 h-8"
           />
-          <span className="text-white font-bold text-2xl ml-2">
+          <span className="text-black font-bold text-2xl ml-2">
             Road Trippin'
           </span>
         </a>
