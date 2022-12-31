@@ -40,7 +40,7 @@ mutation AddPost($title: String!, $postBody: String!) {
 `;
 
 export const ADD_COMMENT = gql`
-utation AddComment($postId: ID!, $commentText: String!) {
+mutation AddComment($postId: ID!, $commentText: String!) {
   addComment(postId: $postId, commentText: $commentText) {
     _id
     title
@@ -58,7 +58,17 @@ utation AddComment($postId: ID!, $commentText: String!) {
 `;
 
 export const REMOVE_POST = gql`
- 
+  mutation RemovePost($postId: ID!) {
+    removePost(postId: $postId) {
+      _id
+    }
+  }
 `;
 
-export const REMOVE_COMMENT = gql``;
+export const REMOVE_COMMENT = gql`
+  mutation RemoveComment($commentId: ID!) {
+    removeComment(commentId: $commentId) {
+      _id
+    }
+  }
+`;
