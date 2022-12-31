@@ -55,7 +55,7 @@ const SignUp = () => {
           value={email}
           name="email"
           placeholder="Email"
-          type="text"
+          type="email"
           className="border w-full h-8 my-2"
           onChange={handleInputChange}
         />
@@ -66,7 +66,7 @@ const SignUp = () => {
           value={password}
           name="password"
           placeholder="Password"
-          type="text"
+          type="password"
           className="border w-full h-8 my-2"
           onChange={handleInputChange}
         />
