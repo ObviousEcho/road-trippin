@@ -1,32 +1,61 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // import Link from react-router-dom
 import validateEmail from "../utils/helpers";
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../utils/mutations";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  // Create a state variable for the form state and a setter function
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
   const [error, setError] = useState("");
+
+  // Declare the LOGIN_USER mutation
+  const [loginUser] = useMutation(LOGIN_USER);
 
   const handleInputChange = (e) => {
     const { target } = e;
     const inputType = target.name;
     const inputValue = target.value;
 
-    if (inputType === "email") {
-      setEmail(inputValue);
-    } else {
-      setPassword(inputValue);
-    }
+    // Update the form state using the setter function
+    setFormState((prevState) => ({
+      ...prevState,
+      [inputType]: inputValue,
+    }));
+    
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+    // Extract the values from the form state
+    const { email, password } = formState;
+
+    // Check that the email and password are valid
     if (!validateEmail(email) || !password) {
       setError("Invalid credentials!");
       return;
     }
 
-    setEmail("");
-    setPassword("");
+    try {
+      // Execute the LOGIN_USER mutation
+      const { data } = await loginUser({ variables: { email, password } });
+      console.log(data); // log the data returned by the mutation
+
+      // Reset the form state
+      setFormState({
+        email: "",
+        password: "",
+      });
+
+      // Navigate to a different page after a successful login
+      <Link to="/trips" />;
+    } catch (err) {
+      console.error(err); // log any errors
+      setError("Error logging in. Please try again.");
+    }
   };
 
   return (
@@ -37,7 +66,7 @@ const Login = () => {
           <h6>Email:</h6>
         </label>
         <input
-          value={email}
+          value={formState.email}
           name="email"
           placeholder="Email"
           type="email"
@@ -48,7 +77,7 @@ const Login = () => {
           <h6>Password:</h6>
         </label>
         <input
-          value={password}
+          value={formState.password}
           name="password"
           placeholder="Password"
           type="text"

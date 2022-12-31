@@ -14,16 +14,20 @@ const client = new ApolloClient({
 });
 
 function App() {
+  // modal control
   const [showModal, setShowModal] = useState(false);
+  // store input value from form
   const [destination, setDestination] = useState("");
   const [destinationProps, setDestinationProps] = useState("");
 
+  // form input change handler
   const handleInputChange = (e) => {
     const { target } = e;
     const inputValue = target.value;
     setDestination(inputValue);
   };
 
+  // form submit handler
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (!destination) {
