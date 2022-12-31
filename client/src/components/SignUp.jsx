@@ -82,7 +82,7 @@ const SignUp = () => {
           value={formState.email}
           name="email"
           placeholder="Email"
-          type="text"
+          type="email"
           className="border w-full h-8 my-2"
           onChange={handleInputChange}
         />
