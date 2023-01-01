@@ -77,7 +77,7 @@ const Map = ({ destination }) => {
   };
 
   // function required for TrafficLayer component to display color coded conditions
-  const onLoad = (trafficLayer) => {
+  const onLoad = (trafficLayer: any) => {
     console.log("trafficLayer: ", trafficLayer);
   };
 
@@ -106,8 +106,9 @@ const Map = ({ destination }) => {
         center={center}
         mapContainerClassName="map-container"
       >
-        <MarkerF position={center} />
         <TrafficLayer onLoad={onLoad} />
+        <MarkerF position={center} />
+        
         {directions && <DirectionsRenderer directions={directions} />}
         {destination && (
           <DistanceMatrixService
