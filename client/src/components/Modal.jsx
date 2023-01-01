@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "./Login";
-import SignUp from "./SignUp";
+import Login from "./Login.jsx";
+import SignUp from "./SignUp.jsx";
 
 const Modal = ({ isVisible, onClose }) => {
   if (!isVisible) return null;

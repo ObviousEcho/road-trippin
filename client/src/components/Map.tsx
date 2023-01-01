@@ -83,7 +83,7 @@ const Map = ({ destination }) => {
 
   //   load map with api key
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyCBlDs4rkBxcKYMiBUVMZfvyJDQ657gz0Y"
   });
 
   if (!isLoaded) return <div>Loading...</div>;
