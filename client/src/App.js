@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import SingleTrip from "./pages/SingleTrip";
 import Modal from "./components/Modal";
 import Map from "./components/Map.tsx";
+import NavBar from "./components/Navbar.jsx"
 
 const client = new ApolloClient({
   uri: "/graphql",
@@ -41,6 +42,7 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
+          <NavBar/>
           <div className="grid grid-cols-2 gap-4">
             <div className="map">
               <Map destination={destinationProps} />
