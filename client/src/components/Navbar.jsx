@@ -7,7 +7,7 @@ const AppNavbar = () => {
       <div className="flex items-center">
         <a href="/">
           <img
-            src="/client/public/RTNavbarLogo.png"
+            src="/RTNavbarLogo.png"
             alt="Logo"
             className="w-8 h-8"
           />
