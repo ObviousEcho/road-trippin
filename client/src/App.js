@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./pages/Home";
-import Trips from "./pages/Trips";
+import Dashboard from "./pages/Dashboard";
 import SingleTrip from "./pages/SingleTrip";
 import Modal from "./components/Modal";
 
@@ -35,7 +35,7 @@ function App() {
         </div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/trips" element={<Trips />} />
+            <Route path="/trips" element={<Dashboard />} />
             <Route path="/trips/:tripId" element={<SingleTrip />} />
           </Routes>
           <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
