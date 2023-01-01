@@ -4,12 +4,11 @@ import {
   GoogleMap,
   useLoadScript,
   MarkerF,
+  TrafficLayer,
   DirectionsRenderer,
   DistanceMatrixService,
 } from "@react-google-maps/api";
 import "../styles/Map.css";
-import { TrafficLayer } from 'google-maps-react';
-
 
 // types allowing access to google's directions service through types/google.maps npm package
 type LatLngLiteral = google.maps.LatLngLiteral;
