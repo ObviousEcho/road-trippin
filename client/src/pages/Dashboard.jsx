@@ -4,7 +4,14 @@ const Dashboard = () => {
 
     return (
         <div>
-            <h1>Hello</h1>
+        <div>
+            <button className="start-new-trip">Start New Trip</button>
+        </div>
+        <div>
+            <button>Last Trip</button>
+            <button>2nd Last Trip</button>
+            <button>3rd Last Trip</button>
+        </div>
         </div>
     );
 };
