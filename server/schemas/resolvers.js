@@ -69,7 +69,7 @@ const resolvers = {
 
         return post;
       }
-      throw new AuthenticationError("You need to be lgoged in!");
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     addComment: async (parent, { postId, commentText }, context) => {
