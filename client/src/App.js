@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 
 import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 import Trips from "./pages/Trips";
 import SingleTrip from "./pages/SingleTrip";
 import Modal from "./components/Modal";
@@ -33,12 +34,13 @@ function App() {
             </button>
           </div>
         </div>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/trips" element={<Trips />} />
-            <Route path="/trips/:tripId" element={<SingleTrip />} />
-          </Routes>
-          <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/trips" element={<Trips />} />
+          <Route path="/trips/:tripId" element={<SingleTrip />} />
+        </Routes>
+        <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       </Router>
     </ApolloProvider>
   );
