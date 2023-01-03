@@ -4,13 +4,13 @@ const Dashboard = () => {
 
     return (
         <div>
-        <div>
-            <button className="start-new-trip">Start New Trip</button>
+        <div className='content-center'>
+            <button className='flex-initial w-32 bg-blue-700 hover:bg-blue-800 text-white font-bold'>Start New Trip</button>
         </div>
-        <div>
-            <button>Last Trip</button>
-            <button>2nd Last Trip</button>
-            <button>3rd Last Trip</button>
+        <div className='content-end'>
+            <button className='flex-initial w-32 bg-blue-700 hover:bg-blue-800 text-white font-bold'>Last Trip</button>
+            <button className='flex-initial w-32 bg-blue-700 hover:bg-blue-800 text-white font-bold'>2nd Last Trip</button>
+            <button className='flex-initial w-32 bg-blue-700 hover:bg-blue-800 text-white font-bold'>3rd Last Trip</button>
         </div>
         </div>
     );
