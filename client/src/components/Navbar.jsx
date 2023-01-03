@@ -1,27 +1,38 @@
 import Auth from "../utils/auth";
 import Modal from "./Modal.jsx";
-import { useState, React } from 'react';
- 
+import { useState, React } from "react";
 
 const AppNavbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log('handleClick called');
+    console.log("handleClick called");
     setIsModalOpen(true);
-    console.log('isModalOpen:', isModalOpen);
+    console.log("isModalOpen:", isModalOpen);
+  };
+const saveTrip = () => {}
+  const handleSaveTrip = (e) => {
+    e.preventDefault();
 
+    // Check if the user is logged in
+    if (Auth.loggedIn()) {
+      // Save the trip
+      saveTrip();
+    } else {
+      // Show the modal
+      setIsModalOpen(true);
+    }
   };
 
   return (
     <nav className="bg-dark py-0 px-0 flex justify-between items-center">
-      <div className="flex items-center">
+      <div className="flex-initial w-62 h-50 ">
         <a href="/">
           <img
             src="/RTNavbarLogo.png"
             alt="Logo"
-            className="w-50 h-40 max-w-60 max-h-50"
+            
           />
           {/* <span className="text-black font-bold text-2xl ml-2">
             Road Trippin'
@@ -29,9 +40,14 @@ const AppNavbar = () => {
         </a>
       </div>
       <div className="flex items-center space-x-4">
-        <a className="black font-bold py-2 px-4 rounded-full" href="/">
-           Save Your Trip
+        <a
+          className="black font-bold py-2 px-4 rounded-full"
+          href="/saved"
+          onClick={handleSaveTrip}
+        >
+          Save Your Trip
         </a>
+
         {/* if user is logged in show saved trips and logout */}
         {Auth.loggedIn() ? (
           <>
