@@ -5,18 +5,23 @@
     "postAuthor": "Moises Valerin"
   },
   {
-    "title": "Alaska this summer",
+    "title": "Anchorage",
     "postBody": "Road trippin to Anchorage!",
     "postAuthor": "James Lewis"
   },
   {
-    "title": "Mexico bound!",
+    "title": "Mexico",
     "postBody": "Driving to the Mexican Riviera, I may not return...",
     "postAuthor": "Mark Kalmar"
   },
   {
-    "title": "Does this map do oceans?",
+    "title": "The Ocean",
     "postBody": "I like sailing!",
+    "postAuthor": "Andrew Stehno"
+  },
+  {
+    "title": "Anchorage",
+    "postBody": "It's cold up here!",
     "postAuthor": "Andrew Stehno"
   }
 ]

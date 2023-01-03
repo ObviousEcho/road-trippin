@@ -108,7 +108,6 @@ const Map = ({ destination }) => {
       >
         <TrafficLayer onLoad={onLoad} />
         <MarkerF position={center} />
-        
         {directions && <DirectionsRenderer directions={directions} />}
         {destination && (
           <DistanceMatrixService

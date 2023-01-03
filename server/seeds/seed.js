@@ -1,19 +1,22 @@
 const db = require("../config/connections");
-const { User, Post } = require("../models");
-const userSeeds = require("./userSeeds.json");
+const { User, Post, Trip } = require("../models");
+const tripSeeds = require("./tripSeeds.json");
 const postSeeds = require("./postSeeds.json");
+const userSeeds = require("./userSeeds.json");
 
 db.once("open", async () => {
   try {
-    await User.deleteMany({});
     await Post.deleteMany({});
+    await Trip.deleteMany({});
+    await User.deleteMany({});
 
     await User.create(userSeeds);
+    await Trip.create(tripSeeds);
 
     for (let i = 0; i < postSeeds.length; i++) {
-      const { _id, postAuthor } = await Post.create(postSeeds[i]);
-      const user = await User.findOneAndUpdate(
-        { username: postAuthor },
+      const { _id, title } = await Post.create(postSeeds[i]);
+      const user = await Trip.findOneAndUpdate(
+        { tripname: title },
         {
           $addToSet: {
             posts: _id,
