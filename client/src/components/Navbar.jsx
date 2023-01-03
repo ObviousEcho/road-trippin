@@ -1,6 +1,6 @@
 import Auth from "../utils/auth";
 import Modal from "./Modal.jsx";
-import { useState, React } from "react";
+import { useState } from "react";
 
 const AppNavbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -8,9 +8,10 @@ const AppNavbar = () => {
   const handleClick = (e) => {
     e.preventDefault();
     console.log("handleClick called");
-    setIsModalOpen(true);
     console.log("isModalOpen:", isModalOpen);
+    setIsModalOpen(true);
   };
+  
 const saveTrip = () => {}
   const handleSaveTrip = (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const saveTrip = () => {}
       <div className="flex-initial w-62 h-50 ">
         <a href="/">
           <img
-            src="/RTNavbarLogo.png"
+            src="/RTNavbarLogo5.png"
             alt="Logo"
             
           />
@@ -40,20 +41,20 @@ const saveTrip = () => {}
         </a>
       </div>
       <div className="flex items-center space-x-4">
-        <a
+        {/* <a
           className="black font-bold py-2 px-4 rounded-full"
           href="/saved"
           onClick={handleSaveTrip}
         >
           Save Your Trip
-        </a>
+        </a> */}
 
         {/* if user is logged in show saved trips and logout */}
         {Auth.loggedIn() ? (
           <>
             <a
               className="text-black font-bold py-2 px-4 rounded-full"
-              href="/saved"
+              href="/dashboard"
             >
               See Your Trips
             </a>
@@ -66,7 +67,7 @@ const saveTrip = () => {}
           </>
         ) : (
           <a
-            className="text-black font-bold py-2 px-4 rounded-full"
+            className="text-black font-bold py-6 px-8 rounded-full"
             href="/login"
             onClick={handleClick}
           >

@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -8,6 +8,8 @@ import SingleTrip from "./pages/SingleTrip";
 import Modal from "./components/Modal";
 import Map from "./components/Map.tsx";
 import NavBar from "./components/Navbar.jsx"
+import Login from './components/Login.jsx';
+import Signup from './components/SignUp.jsx';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -84,8 +86,11 @@ function App() {
         </div>
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/trips/:tripId' element={<SingleTrip />} />
+
         </Routes>
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
       </Router>
