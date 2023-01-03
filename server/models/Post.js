@@ -15,12 +15,11 @@ const postSchema = new Schema({
     maxlength: 2000,
   },
 
-  postAuthor: [
-    {
-      type: String,
-      ref: "User",
-    },
-  ],
+  postAuthor: {
+    type: String,
+    required: true,
+    trim: true,
+  },
 
   createdAt: {
     type: Date,
@@ -40,11 +39,11 @@ const postSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "User",
       },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
-      },
+      // createdAt: {
+      //   type: Date,
+      //   default: Date.now,
+      //   get: (timestamp) => dateFormat(timestamp),
+      // },
     },
   ],
 });

@@ -22,19 +22,19 @@ const userSchema = new Schema({
     minlength: 5,
   },
 
-  posts: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Post",
-    },
-  ],
+  // posts: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Post",
+  //   },
+  // ],
 
-  comments: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
-    },
-  ],
+  // comments: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Comment",
+  //   },
+  // ],
 });
 
 userSchema.pre("save", async function (next) {
