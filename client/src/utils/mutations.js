@@ -8,6 +8,7 @@ export const ADD_USER = gql`
         password
         email
       }
+      token
     }
   }
 `;
@@ -19,46 +20,42 @@ export const LOGIN_USER = gql`
         email
         password
       }
+      token
     }
   }
 `;
 
 export const ADD_POST = gql`
-mutation AddPost($title: String!, $postBody: String!) {
-  addPost(title: $title, postBody: $postBody) {
-    _id
-    title
-    postBody
-    postAuthor
-    createdAt
-    comments {
+  mutation AddPost($title: String!, $postBody: String!) {
+    addPost(title: $title, postBody: $postBody) {
       _id
-      commentText
+      title
+      postBody
+      postAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+      }
     }
   }
-}
 `;
 
 export const ADD_COMMENT = gql`
-mutation AddComment($postId: ID!, $commentText: String!) {
-  addComment(postId: $postId, commentText: $commentText) {
-    _id
-    title
-    postBody
-    postAuthor
-    createdAt
-    comments {
-      _id
-      commentText
-      commentAuthor
-      createdAt
+  mutation AddComment($postId: ID!, $commentText: String!) {
+    addComment(postId: $postId, commentText: $commentText) {
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
     }
   }
-}
 `;
 
 export const REMOVE_POST = gql`
-  mutation RemovePost($postId: ID!) {
+  mutation Removepost($postId: ID!) {
     removePost(postId: $postId) {
       _id
     }
@@ -66,8 +63,8 @@ export const REMOVE_POST = gql`
 `;
 
 export const REMOVE_COMMENT = gql`
-  mutation RemoveComment($commentId: ID!) {
-    removeComment(commentId: $commentId) {
+  mutation RemoveComment($postId: ID!, $commentId: ID!) {
+    removeComment(postId: $postId, commentId: $commentId) {
       _id
     }
   }
