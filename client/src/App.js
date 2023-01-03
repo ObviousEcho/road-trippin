@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import Trips from './pages/Trips';
 import SingleTrip from './pages/SingleTrip';
 import Modal from './components/Modal';
 import Map from './components/Map.tsx';
