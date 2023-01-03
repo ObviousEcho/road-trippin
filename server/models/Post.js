@@ -36,14 +36,15 @@ const postSchema = new Schema({
         maxlength: 280,
       },
       commentAuthor: {
-        type: Schema.Types.ObjectId,
-        ref: "User",
+        type: String,
+        required: true,
+        trim: true
       },
-      // createdAt: {
-      //   type: Date,
-      //   default: Date.now,
-      //   get: (timestamp) => dateFormat(timestamp),
-      // },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     },
   ],
 });

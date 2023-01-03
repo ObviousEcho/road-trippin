@@ -36,8 +36,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    trips(tripname: String!): [Trip]
-    trip(tripId: ID!): Post
+    trips: [Trip]
+    trip(tripname: String!): [Post]
     posts(tripname: String): [Post]
     post(postId: ID!): Post
   }
@@ -46,7 +46,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addPost(title: String!, postBody: String!): Post
-    addComment(postId: ID!, commentText: String!): Post
+    addComment(postId: ID!, commentText: String!, createdAt: String): Post
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post
   }
