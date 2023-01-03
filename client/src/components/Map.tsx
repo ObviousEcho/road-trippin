@@ -77,7 +77,7 @@ const Map = ({ destination }) => {
   };
 
   // function required for TrafficLayer component to display color coded conditions
-  const onLoad = (trafficLayer) => {
+  const onLoad = (trafficLayer: any) => {
     console.log("trafficLayer: ", trafficLayer);
   };
 

@@ -2,11 +2,12 @@ import { React, useState } from 'react';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import SingleTrip from './pages/SingleTrip';
-import Modal from './components/Modal';
-import Map from './components/Map.tsx';
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+import SingleTrip from "./pages/SingleTrip";
+import Modal from "./components/Modal";
+import Map from "./components/Map.tsx";
+import NavBar from "./components/Navbar.jsx"
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -41,8 +42,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <div>
-          <div className='grid grid-cols-2 gap-4'>
-            <div className='map'>
+          <NavBar/>
+          <div className="grid grid-cols-2 gap-4">
+            <div className="map">
               <Map destination={destinationProps} />
             </div>
             <section className='text-center mt-4'>
