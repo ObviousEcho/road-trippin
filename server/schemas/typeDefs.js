@@ -37,7 +37,7 @@ const typeDefs = gql`
 
   type Query {
     trips: [Trip]
-    trip(tripname: String!): [Post]
+    trip(tripname: String!): Trip
     posts(tripname: String): [Post]
     post(postId: ID!): Post
   }
