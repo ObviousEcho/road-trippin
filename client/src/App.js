@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/trips/:tripId" element={<SingleTrip />} />
+            <Route path="/trips/:tripname" element={<SingleTrip />} />
           </Route>
         </Routes>
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
