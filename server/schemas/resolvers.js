@@ -15,8 +15,8 @@ const resolvers = {
       return Trip.find({});
     },
 
-    trip: async () => {
-      return Post.find({});
+    trip: async (parent, { tripname }) => {
+      return Trip.findOne({ tripname: tripname }).populate('posts');
     },
 
     posts: async (parent, { tripname }) => {
