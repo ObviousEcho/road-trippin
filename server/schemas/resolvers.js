@@ -15,8 +15,8 @@ const resolvers = {
       return Trip.find({});
     },
 
-    trip: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
+    trip: async () => {
+      return Post.find({});
     },
 
     posts: async (parent, { tripname }) => {
@@ -72,7 +72,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    addComment: async (parent, { postId, commentText }, context) => {
+    addComment: async (parent, { postId, commentText, createdAt }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
@@ -81,7 +81,7 @@ const resolvers = {
               comments: {
                 commentText,
                 commentAuthor: context.user.username,
-                createdAt,
+                createdAt
               },
             },
           },
