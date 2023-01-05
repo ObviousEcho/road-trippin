@@ -36,7 +36,7 @@ const AppNavbar = () => {
                 transform: "translateX(-140px)",
               }}
               className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
-              href="/dashboard"
+              href="/trips"
             >
               Trips
             </a>

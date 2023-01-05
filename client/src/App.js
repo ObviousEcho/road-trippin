@@ -3,7 +3,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
+import Trips from "./pages/Trips";
 import SingleTrip from "./pages/SingleTrip";
 import SinglePost from "./pages/SinglePost";
 import Modal from "./components/Modal";
@@ -24,7 +24,7 @@ function App() {
         <NavBar />
         <Routes>
           <Route path="/" element={<Home />}>
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/trips" element={<Trips />} />
             <Route path="/trips/:tripname" element={<SingleTrip />} />
             <Route path="/posts/:id" element={<SinglePost />} />
           </Route>
