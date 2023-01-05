@@ -33,7 +33,7 @@ const TripsList = ({ tripname }) => {
       <div className='flex-row my-4'>
         {data.trips &&
           data.trips.map((item) => (
-            <Link to={`/trip/${item.tripname}`} key={item._id}>
+            <Link to={`/trips/${item.tripname}`} key={item._id}>
               <div className='col-12 mb-3 pb-3'> {item.tripname}</div>
             </Link>
           ))}

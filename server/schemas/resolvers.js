@@ -16,7 +16,7 @@ const resolvers = {
     },
 
     trip: async (parent, { tripname }) => {
-      return Trip.findOne({ tripname: tripname }).populate('posts');
+      return Trip.findOne({ tripname: tripname }).populate("posts");
     },
 
     posts: async (parent, { tripname }) => {
@@ -55,13 +55,18 @@ const resolvers = {
     },
 
     addPost: async (parent, { title, postBody }, context) => {
-      console.log(title, postBody, context.user)
+      console.log(title, postBody, context.user);
       if (context.user) {
-        const post = await Post.create({
-          title,
-          postBody,
-          postAuthor: context.user.username,
-        });
+        const post = await Post.create(
+          {
+            title,
+            postBody,
+            postAuthor: context.user.username,
+          },
+          {
+            new: true,
+          }
+        );
 
         // await User.findOneAndUpdate(
         //   { _id: context.user._id },
@@ -82,7 +87,7 @@ const resolvers = {
               comments: {
                 commentText,
                 commentAuthor: context.user.username,
-                createdAt
+                createdAt,
               },
             },
           },

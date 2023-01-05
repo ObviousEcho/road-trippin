@@ -53,7 +53,7 @@ const saveTrip = () => {}
           <>
             <a
               className="text-black font-bold py-2 px-4 rounded-full"
-              href="/saved"
+              href="/dashboard"
             >
               See Your Trips
             </a>
