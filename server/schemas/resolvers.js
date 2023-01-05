@@ -1,31 +1,30 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Post } = require("../models");
+const { User, Post, Trip } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
-    me: async (parent, { username }, context) => {
-      if (context.username) {
-        return User.findOne(username);
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    // me: async (parent, { username }, context) => {
+    //   if (context.username) {
+    //     return User.findOne(username);
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
+
+    trips: async () => {
+      return Trip.find({});
     },
 
-    posts: async (parent, { username }) => {
-      const params = username ? { username } : {};
+    trip: async (parent, { tripname }) => {
+      return Trip.findOne({ tripname: tripname }).populate('posts');
+    },
+
+    posts: async (parent, { tripname }) => {
+      const params = tripname ? { tripname } : {};
       return Post.find(params).sort({ createdAt: -1 });
     },
 
     post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
-    },
-
-    trips: async (parent, { tripname }) => {
-      const params = tripname ? { tripname } : {};
-      return Trip.find(params);
-    },
-
-    trip: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
   },
@@ -70,10 +69,10 @@ const resolvers = {
 
         return post;
       }
-      throw new AuthenticationError("You need to be lgoged in!");
+      throw new AuthenticationError("You need to be logged in!");
     },
 
-    addComment: async (parent, { postId, commentText }, context) => {
+    addComment: async (parent, { postId, commentText, createdAt }, context) => {
       if (context.user) {
         return Post.findOneAndUpdate(
           { _id: postId },
@@ -82,7 +81,7 @@ const resolvers = {
               comments: {
                 commentText,
                 commentAuthor: context.user.username,
-                createdAt,
+                createdAt
               },
             },
           },

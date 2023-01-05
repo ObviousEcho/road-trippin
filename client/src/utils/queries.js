@@ -1,24 +1,7 @@
 import { gql } from "@apollo/client";
 
-export const QUERY_ME = gql`
-  query Me {
-    me {
-      _id
-      username
-      email
-      posts {
-        _id
-        title
-        postBody
-        createdAt
-        postAuthor
-      }
-    }
-  }
-`;
-
 export const QUERY_POSTS = gql`
-  query Me {
+  query Posts {
     posts {
       _id
       title
@@ -37,31 +20,39 @@ export const QUERY_SINGLE_POST = gql`
       postBody
       postAuthor
       createdAt
-    }
-  }
-`;
-
-export const QUERY_TRIPS = gql`
-  query Trips($tripname: String!) {
-    trips(tripname: $tripname) {
-      _id
-      tripname
-      posts {
+      comments {
         _id
-        title
+        commentAuthor
+        commentText
+        createdAt
       }
     }
   }
 `;
 
-export const QUERY_TRIP = gql`
-  query Trip($tripId: ID!) {
-    trip(tripId: $tripId) {
+export const QUERY_TRIPS = gql`
+  query Trips {
+    trips {
       _id
-      title
-      postBody
-      postAuthor
-      createdAt
+      tripname
+    }
+  }
+`;
+
+export const QUERY_TRIP = gql`
+  query Trip($tripname: String!) {
+    trip(tripname: $tripname) {
+      tripname
+      posts {
+        _id
+        title
+        postBody
+        postAuthor
+        createdAt
+        comments {
+          commentText
+        }
+      }
     }
   }
 `;

@@ -1,9 +1,14 @@
-import jwtDecode from 'jwt-decode';
+import decode from 'jwt-decode';
 
 class AuthService {
   getProfile() {
-    return jwtDecode(this.getToken());
+    const token = this.getToken();
+    if (!token) {
+      return null;
+    }
+    return decode(token);
   }
+  
 
   loggedIn() {
     const token = this.getToken();
@@ -15,7 +20,7 @@ class AuthService {
     if (!token) return true;
 
     try {
-      const decoded = jwtDecode(token);
+      const decoded = decode(token);
       if (decoded.exp < Date.now() / 1000) {
         localStorage.removeItem('id_token');
         return true;
