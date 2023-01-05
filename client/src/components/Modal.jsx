@@ -2,20 +2,15 @@ import React from "react";
 import Login from "./Login.jsx";
 import SignUp from "./SignUp.jsx";
 
-class Modal extends React.Component {
-  constructor(props) {
-    super(props);
+const Modal = ({ isVisible, onClose }) => {
+  console.log("isVisible:", true);
+  if (!isVisible) return null;
 
-    this.handleClose = this.handleClose.bind(this);
-    this.handleToggle = this.handleToggle.bind(this);
-  }
+  const handleClose = (e) => {
+    if (e.target.id === "wrapper" && e.target !== e.currentTarget) onClose();
+  };
 
-  handleClose(e) {
-    if (e.target.id === "wrapper" && e.target !== e.currentTarget)
-      this.props.onClose();
-  }
-
-  handleToggle() {
+  const handleToggle = () => {
     let isChecked = document.getElementById("toggle").checked;
     const login = document.getElementById("login");
     const signup = document.getElementById("signup");
@@ -29,59 +24,56 @@ class Modal extends React.Component {
       signup.setAttribute("class", "hidden");
       login.removeAttribute("class");
     }
-  }
+  };
 
-  render() {
-    if (!this.props.isVisible) return null;
-
-    return (
+  return (
+    <div
+      style={{
+        position: "fixed",
+        zIndex: 10,
+      }}
+      id="wrapper"
+      onClick={handleClose}
+    >
       <div
-        style={{
-          position: "fixed",
-          zIndex: 10,
-        }}
+        className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
         id="wrapper"
-        onClick={this.handleClose}
+        onClick={handleClose}
       >
-        <div
-          className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center"
-          id="wrapper"
-          onClick={this.handleClose}
-        >
-          <div className="w-[600px] flex flex-col">
-            <button
-              className="text-white text-xl place-self-end"
-              onClick={() => this.props.onClose()}
-            >
-              X
-            </button>
-            <div className="bg-white p-2 rounded">
-              <div className="flex  justify-center">
-                <label className="inline-flex relative items-center cursor-pointer">
-                  <input
-                    type="checkbox"
-                    value=""
-                    className="sr-only peer"
-                    id="toggle"
-                    onChange={this.handleToggle}
-                  />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-                    Login/Sign Up
-                  </span>
-                </label>
-              </div>
-              <div id="login">
-                <Login />
-              </div>
-              <div id="signup" className="hidden">
-                <SignUp />
-              </div>
+        <div className="w-[600px] flex flex-col">
+          <button
+            className="text-white text-xl place-self-end"
+            onClick={() => onClose()}
+          >
+            X
+          </button>
+          <div className="bg-white p-2 rounded">
+            <div className="flex  justify-center">
+              <label className="inline-flex relative items-center cursor-pointer">
+                <input
+                  type="checkbox"
+                  value=""
+                  className="sr-only peer"
+                  id="toggle"
+                  onChange={handleToggle}
+                />
+                <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <span className="ml-3 text-sm font-medium text-gray-900 dark:text-gray-300">
+                  Login/Sign Up
+                </span>
+              </label>
+            </div>
+            <div id="login">
+              <Login />
+            </div>
+            <div id="signup" className="hidden">
+              <SignUp />
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
 export default Modal;
