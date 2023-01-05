@@ -38,20 +38,24 @@ const PostForm = ({ title }) => {
   };
 
   return (
-    <div>
-      <h4>Add a new post:</h4>
+    <div className="m-3">
+      <h4 className="text-2xl mb-1">Add a new post:</h4>
       {Auth.loggedIn() ? (
         <>
-          <h5>Title: {title}</h5>
+          <h5 className="text-xl">Title: {title}</h5>
           <form onSubmit={handlePostSubmit}>
             <textarea
               name="postState"
               value={postState}
               placeholder="Travel blog!"
-              className="border-2"
+              className="border-2 ml-3 mt-3 w-1/2 h-40"
               onChange={handlePostChange}
             />
-            <button className="border-2 m-3" type="submit">
+            <br />
+            <button
+              className="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none font-medium text-sm rounded-lg px-5 py-2.5 text-center m-5"
+              type="submit"
+            >
               Post It!
             </button>
             {error && <div>{error.message}</div>}

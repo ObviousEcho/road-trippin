@@ -24,17 +24,12 @@ const TripsList = ({ tripname }) => {
         </p>
       )}
 
-      <h3
-        className="p-5 display-inline-block"
-        style={{ borderBottom: "1px dotted #1a1a1a" }}
-      >
-        Trips
-      </h3>
-      <div className="flex-row my-4">
+      <h3 className="text-2xl p-5">Trips:</h3>
+      <div className="my-4">
         {data.trips &&
-          data.trips.map((item) => (
-            <Link to={`/trips/${item.tripname}`} key={item._id}>
-              <div className="col-12 mb-3 pb-3"> {item.tripname}</div>
+          data.trips.map((trip) => (
+            <Link to={`/trips/${trip.tripname}`} key={trip._id}>
+              <div className="col-12 border-2 mx-8 mb-3 py-3"> {trip.tripname}</div>
             </Link>
           ))}
       </div>

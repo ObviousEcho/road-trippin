@@ -26,12 +26,6 @@ const Dashboard = () => {
       <div>
         <ul
           className="grid gap-4 text-center mt-4 list-inside list-none"
-          style={{
-            fontSize: "1.5rem",
-            fontStyle: "normal",
-            border: "2px dotted #1a1a1a",
-            lineHeight: "1.5",
-          }}
         >
           <li>
             <TripsList tripname={trips.tripname} />

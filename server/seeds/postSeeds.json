@@ -7,7 +7,17 @@
   {
     "title": "Anchorage",
     "postBody": "Road trippin to Anchorage!",
-    "postAuthor": "James Lewis"
+    "postAuthor": "James Lewis",
+    "comments": [
+      {
+        "commentText": "I've always wanted to travel to Alaska!",
+        "commentAuthor": "Andrew Stehno"
+      },
+      {
+        "commentText": "Poor polar bears...",
+        "commentAuthor": "Mark Kalmar"
+      }
+    ]
   },
   {
     "title": "Mexico",

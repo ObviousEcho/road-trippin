@@ -9,7 +9,7 @@ import { QUERY_TRIP } from "../utils/queries";
 
 const TripPostForm = () => {
   const { tripname: tripParam } = useParams();
-
+  
   const { loading, data } = useQuery(QUERY_TRIP, {
     variables: { tripname: tripParam },
   });
@@ -21,7 +21,7 @@ const TripPostForm = () => {
   }
 
   return (
-    <div>
+    <div className="m-3">
       <PostForm title={tripParam} />
       <div>
         <h3 className="text-2xl">
