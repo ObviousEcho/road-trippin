@@ -49,8 +49,6 @@ const CommentForm = ({ thoughtId }) => {
 
   return (
     <div>
-      <h4>What are your thoughts on this thought?</h4>
-
       {/* If the user is logged in, render the form. Otherwise, display a message prompting the user to login or sign up */}
       {Auth.loggedIn() ? (
         <>
@@ -86,7 +84,7 @@ const CommentForm = ({ thoughtId }) => {
         </>
       ) : (
         <p>
-          You need to be logged in to share your thoughts. Please{' '}
+          You need to be logged in to view past trips. Please{' '}
           <Link to='/login'>login</Link> or <Link to='/signup'>signup.</Link>
         </p>
       )}
