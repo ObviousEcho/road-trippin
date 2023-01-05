@@ -17,6 +17,7 @@ const Home = () => {
   // form submit handler
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!destination) {
       return;
     }

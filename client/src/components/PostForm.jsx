@@ -4,32 +4,37 @@ import { ADD_POST } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const PostForm = ({ title }) => {
-  const [formState, setFormState] = useState("");
+  const [postState, setpostState] = useState("");
 
   const [addPost, { error }] = useMutation(ADD_POST);
 
-  const handleInputChange = (e) => {
+  const handlePostChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === "formState" && value.length <= 2000) {
-      setFormState(value);
+    if (name === "postState" && value.length <= 2000) {
+      setpostState(value);
     }
   };
 
-  const handleFormSubmit = async (event) => {
-    event.prevenDefault();
+  const handlePostSubmit = async (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    console.log(title, postState);
     try {
       const { data } = await addPost({
-        vairables: {
-          title: title,
-          postBody: formState,
+        variables: {
+          title,
+          postBody: postState,
         },
-      });
-
-      setFormState("");
+    });
+    console.log(data);
+      if (!data) {
+        throw new Error("something went wrong");
+      }
     } catch (err) {
       console.error(err);
     }
+    setpostState("");
   };
 
   return (
@@ -38,13 +43,13 @@ const PostForm = ({ title }) => {
       {Auth.loggedIn() ? (
         <>
           <h5>Title: {title}</h5>
-          <form onSubmit={handleFormSubmit}>
+          <form onSubmit={handlePostSubmit}>
             <textarea
-              name="formState"
-              value={formState}
+              name="postState"
+              value={postState}
               placeholder="Travel blog!"
               className="border-2"
-              onChange={handleInputChange}
+              onChange={handlePostChange}
             />
             <button className="border-2 m-3" type="submit">
               Post It!

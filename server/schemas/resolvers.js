@@ -55,6 +55,7 @@ const resolvers = {
     },
 
     addPost: async (parent, { title, postBody }, context) => {
+      console.log(title, postBody, context.user)
       if (context.user) {
         const post = await Post.create({
           title,
@@ -62,10 +63,10 @@ const resolvers = {
           postAuthor: context.user.username,
         });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { posts: post._id } }
-        );
+        // await User.findOneAndUpdate(
+        //   { _id: context.user._id },
+        //   { $addToSet: { posts: post._id } }
+        // );
 
         return post;
       }
