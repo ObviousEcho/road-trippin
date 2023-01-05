@@ -48,7 +48,7 @@ const PostForm = ({ title }) => {
               name="postState"
               value={postState}
               placeholder="Travel blog!"
-              className="border-2 ml-3 mt-3 w-1/2 h-40"
+              className="border-2 ml-3 mt-3 sm:w-full md:w-1/2 h-40"
               onChange={handlePostChange}
             />
             <br />
