@@ -55,7 +55,7 @@ const resolvers = {
     },
 
     addPost: async (parent, { title, postBody }, context) => {
-      console.log(title, postBody, context.user);
+      // console.log(title, postBody, context.user);
       if (context.user) {
         const post = await Post.create(
           {
