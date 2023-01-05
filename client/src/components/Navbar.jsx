@@ -49,13 +49,27 @@ const AppNavbar = () => {
         {Auth.loggedIn() ? (
           <>
             <a
-              className="text-black font-bold py-2 px-4 rounded-full"
+              style={{
+                fontSize: "20px",
+                borderRadius: "40px",
+                boxShadow: "0 0 0 2px black",
+                paddingRight: "40px",
+                transform: "translateX(-140px)",
+              }}
+              className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
               href="/dashboard"
             >
               Trips
             </a>
             <button
-              className="text-black font-bold py-2 px-4 rounded-full"
+              style={{
+                fontSize: "20px",
+                borderRadius: "40px",
+                boxShadow: "0 0 0 2px black",
+                paddingRight: "40px",
+                transform: "translateX(-140px)",
+              }}
+              className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
               onClick={Auth.logout}
             >
               Logout
@@ -70,13 +84,14 @@ const AppNavbar = () => {
               paddingRight: "40px",
               transform: "translateX(-140px)",
             }}
-            className="text-black font-bold py-6 px-8 rounded-full"
+            className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
             href="/login"
             onClick={handleClick}
           >
             Login/Sign Up
           </a>
         )}
+
       </div>
       <Modal isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
