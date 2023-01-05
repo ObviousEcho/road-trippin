@@ -22,7 +22,7 @@ const TripPostForm = () => {
 
   return (
     <div>
-      <PostForm />
+      <PostForm title={tripParam}/>
       <div>
         <h3 className="text-2xl">
           Posts associated with your trip to {tripParam}:

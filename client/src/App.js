@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import SingleTrip from "./pages/SingleTrip";
+import SinglePost from "./pages/SinglePost";
 import Modal from "./components/Modal";
 import NavBar from "./components/Navbar.jsx";
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/" element={<Home />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/trips/:tripname" element={<SingleTrip />} />
+            <Route path="/posts/:id" element={<SinglePost />} />
           </Route>
         </Routes>
         <Modal isVisible={showModal} onClose={() => setShowModal(false)} />
