@@ -1,6 +1,7 @@
 import Auth from "../utils/auth";
 import Modal from "./Modal.jsx";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const AppNavbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,23 +24,23 @@ const AppNavbar = () => {
         </a>
       </div>
       <div className="sm:my-3 flex flex-initial justify-center">
-
         {/* if user is logged in show saved trips and logout */}
         {Auth.loggedIn() ? (
           <>
-            <a
-              style={{
-                fontSize: "20px",
-                borderRadius: "40px",
-                boxShadow: "0 0 0 2px black",
-                paddingRight: "40px",
-                transform: "translateX(-140px)",
-              }}
-              className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
-              href="/trips"
-            >
-              Trips
-            </a>
+            <Link to="/trips">
+              <p
+                style={{
+                  fontSize: "20px",
+                  borderRpdius: "40px",
+                  boxShadow: "0 0 0 2px black",
+                  paddingRight: "40px",
+                  transform: "translateX(-140px)",
+                }}
+                className="text-black font-bold py-6 px-8 rounded-full hover:bg-black hover:text-white"
+              >
+                Trips
+              </p>
+            </Link>
             <button
               style={{
                 fontSize: "20px",
@@ -70,7 +71,6 @@ const AppNavbar = () => {
             Login/Sign Up
           </a>
         )}
-
       </div>
       <Modal isVisible={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </nav>
