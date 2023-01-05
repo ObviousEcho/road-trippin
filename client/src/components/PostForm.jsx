@@ -26,8 +26,8 @@ const PostForm = ({ title }) => {
           title,
           postBody: postState,
         },
-    });
-    console.log(data);
+      });
+      console.log(data);
       if (!data) {
         throw new Error("something went wrong");
       }

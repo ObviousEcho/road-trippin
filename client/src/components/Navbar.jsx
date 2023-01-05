@@ -11,7 +11,7 @@ const AppNavbar = () => {
     setIsModalOpen(true);
     console.log("isModalOpen:", isModalOpen);
   };
-const saveTrip = () => {}
+  const saveTrip = () => {};
   const handleSaveTrip = (e) => {
     e.preventDefault();
 
@@ -29,11 +29,7 @@ const saveTrip = () => {}
     <nav className="bg-dark py-0 px-0 flex justify-between items-center">
       <div className="flex-initial w-62 h-50 ">
         <a href="/">
-          <img
-            src="/RTNavbarLogo.png"
-            alt="Logo"
-            
-          />
+          <img src="/RTNavbarLogo.png" alt="Logo" />
           {/* <span className="text-black font-bold text-2xl ml-2">
             Road Trippin'
           </span> */}

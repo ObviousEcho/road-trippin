@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
-import TripsList from '../components/TripsList';
-import { QUERY_TRIPS } from '../utils/queries';
+import { useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import TripsList from "../components/TripsList";
+import { QUERY_TRIPS } from "../utils/queries";
 
 const Dashboard = () => {
   // Use `useParams()` to retrieve value of the route parameter `:profileId`
@@ -25,12 +25,12 @@ const Dashboard = () => {
       {/* Past Trips */}
       <div>
         <ul
-          className='grid gap-4 text-center mt-4 list-inside list-none'
+          className="grid gap-4 text-center mt-4 list-inside list-none"
           style={{
-            fontSize: '1.5rem',
-            fontStyle: 'normal',
-            border: '2px dotted #1a1a1a',
-            lineHeight: '1.5',
+            fontSize: "1.5rem",
+            fontStyle: "normal",
+            border: "2px dotted #1a1a1a",
+            lineHeight: "1.5",
           }}
         >
           <li>
