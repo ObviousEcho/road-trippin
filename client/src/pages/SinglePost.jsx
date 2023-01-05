@@ -15,7 +15,8 @@ const SinglePost = () => {
   console.log(postParam);
 
   const { loading, data } = useQuery(QUERY_SINGLE_POST, {
-    variables: { postId: "63b70bef2585074eb4609671" },
+    // variables: { postId: "63b70bef2585074eb4609671" },
+    variables: { postId: postParam },
   });
 
   const post = data?.post || {};
