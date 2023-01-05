@@ -2,9 +2,7 @@ import React from 'react';
 
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-
 import TripsList from '../components/TripsList';
-
 import { QUERY_TRIPS } from '../utils/queries';
 
 const Dashboard = () => {
@@ -27,7 +25,7 @@ const Dashboard = () => {
       {/* Past Trips */}
       <div>
         <ul
-          className='grid gap-4 text-center mt-4 list-inside list-disc'
+          className='grid gap-4 text-center mt-4 list-inside list-none'
           style={{
             fontSize: '1.5rem',
             fontStyle: 'normal',
@@ -38,13 +36,7 @@ const Dashboard = () => {
           <li>
             <TripsList tripname={trips.tripname} />
           </li>
-          <li>
-            <TripsList tripsId={trips._id} />
-          </li>
         </ul>
-        {/* <div className='p-4'>
-          <CommentList tripname={trips.tripname} />
-        </div> */}
       </div>
     </div>
   );
@@ -52,11 +44,9 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-{
-  /* Start New Trip */
-}
-{
-  /* <div className='grid grid-cols-2 gap-4'>
+/* Start New Trip */
+
+/* <div className='grid grid-cols-2 gap-4'>
   <div className='text-center mt-4'>
     <form className='w-full max-w-sm'>
       <div className='flex items-center border-b border-teal-500 py-2'>
@@ -79,4 +69,3 @@ export default Dashboard;
     </form>
   </div>
 </div> */
-}

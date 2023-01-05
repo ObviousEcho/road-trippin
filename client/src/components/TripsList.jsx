@@ -1,24 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
 import { QUERY_TRIPS } from '../utils/queries.js';
 
 const TripsList = ({ tripname }) => {
-  if (!tripname.length) {
-    return <h3>No Trips Yet</h3>;
-  }
+  const { loading, error, data } = useQuery(QUERY_TRIPS);
 
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+  console.log(JSON.stringify(data));
+  console.log(data);
   return (
     <div>
       {/* If the user is logged in, render the form. Otherwise, display a message prompting the user to login or sign up */}
       {Auth.loggedIn() ? (
-        <>
-          {/* Display error message, if any
-          <p className={`m-0 ${error ? 'text-danger' : ''}`}>
-            {error && <span className='ml-2'>{error}</span>}
-          </p> */}
-        </>
+        <></>
       ) : (
         <p>
           You need to be logged in to view past trips. Please{' '}
@@ -33,9 +31,11 @@ const TripsList = ({ tripname }) => {
         Trips
       </h3>
       <div className='flex-row my-4'>
-        {trips &&
-          trips.map((tripname) => (
-            <div key={trips._id} className='col-12 mb-3 pb-3'></div>
+        {data.trips &&
+          data.trips.map((item) => (
+            <Link to={`/trip/${item.tripname}`} key={item._id}>
+              <div className='col-12 mb-3 pb-3'> {item.tripname}</div>
+            </Link>
           ))}
       </div>
     </div>
