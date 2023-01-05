@@ -33,10 +33,6 @@ export const ADD_POST = gql`
       postBody
       postAuthor
       createdAt
-      comments {
-        _id
-        commentText
-      }
     }
   }
 `;

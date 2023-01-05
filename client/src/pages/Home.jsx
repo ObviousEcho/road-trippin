@@ -17,6 +17,7 @@ const Home = () => {
   // form submit handler
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!destination) {
       return;
     }
@@ -25,36 +26,36 @@ const Home = () => {
   };
   return (
     <>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4">
         <div className="map">
           <Map destination={destinationProps} />
         </div>
         
         <section
           className="text-center mt-4"
-          style={{
-            marginTop: "-1px",
-            backgroundImage: `url('/RoadtripStickers.jpg')`,
-            backgroundPosition: "7%",
-            backgroundSize: "150%",
-            paddingRight: "60px",
-            paddingTop: "-0px",
-            backgroundClip: "content-box",
-            backgroundOrigin: "border-box",
-            height: "100%",
-          }}
+          // style={{
+          //   marginTop: "-1px",
+          //   backgroundImage: `url('/RoadtripStickers.jpg')`,
+          //   backgroundPosition: "7%",
+          //   backgroundSize: "150%",
+          //   paddingRight: "60px",
+          //   paddingTop: "-0px",
+          //   backgroundClip: "content-box",
+          //   backgroundOrigin: "border-box",
+          //   height: "100%",
+          // }}
         >
           <form
-            style={{
-              backgroundColor: "white",
-              width: "500px",
-              paddingTop: "30px",
-              paddingRight: "0px",
-              margin: "350px auto",
-              display: "block",
-              boxShadow: "0 0 50px rgba(0, 0, 0, 0.5)",
-              opacity: .95,
-            }}
+            // style={{
+            //   backgroundColor: "white",
+            //   width: "500px",
+            //   paddingTop: "30px",
+            //   paddingRight: "0px",
+            //   margin: "350px auto",
+            //   display: "block",
+            //   boxShadow: "0 0 50px rgba(0, 0, 0, 0.5)",
+            //   opacity: .95,
+            // }}
             className="mt-6"
           >
             <label className="text xl text-4xl font-bold">
