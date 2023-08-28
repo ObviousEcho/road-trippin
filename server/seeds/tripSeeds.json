@@ -1,17 +1,21 @@
 [
   {
-    "tripname": "Anchorage"
+    "tripname": "Anchorage",
+    "posts": []
   },
 
   {
-    "tripname": "Washington DC"
+    "tripname": "Washington DC",
+    "posts": []
   },
 
   {
-    "tripname": "Mexico"
+    "tripname": "Mexico",
+    "posts": []
   },
 
   {
-    "tripname": "The Ocean"
+    "tripname": "The Ocean",
+    "posts": []
   }
 ]

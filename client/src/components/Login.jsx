@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"; // import Link from react-router-dom
-// import validateEmail from "../utils/helpers";
+import validateEmail from "../utils/helpers";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
-
 
 const Login = () => {
   // Create a state variable for the form state and a setter function
@@ -27,21 +26,19 @@ const Login = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
 
     // Extract the values from the form state
-    // const { email, password } = formState;
+    const { email, password } = formState;
 
     // Check that the email and password are valid
-    // if (!validateEmail(email) || !password) {
-    //   setError("Invalid credentials!");
-    //   return;
-    // }
+    if (!validateEmail(email) || !password) {
+      // setError("Invalid credentials!");
+      return;
+    }
 
     try {
       // Execute the LOGIN_USER mutation
       const { data } = await login({ variables: { ...formState } });
-      console.log(data); // log the data returned by the mutation
 
       Auth.login(data.login.token);
     } catch (e) {

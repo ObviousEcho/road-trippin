@@ -3,7 +3,6 @@ import Login from "./Login.jsx";
 import SignUp from "./SignUp.jsx";
 
 const Modal = ({ isVisible, onClose }) => {
-  console.log("isVisible:", true);
   if (!isVisible) return null;
 
   const handleClose = (e) => {

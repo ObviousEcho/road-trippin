@@ -38,7 +38,7 @@ const postSchema = new Schema({
       commentAuthor: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
       },
       createdAt: {
         type: Date,

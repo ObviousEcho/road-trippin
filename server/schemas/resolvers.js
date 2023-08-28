@@ -12,20 +12,20 @@ const resolvers = {
     // },
 
     trips: async () => {
-      return Trip.find({});
+      return await Trip.find({}).populate("posts");
     },
 
     trip: async (parent, { tripname }) => {
-      return Trip.findOne({ tripname: tripname }).populate("posts");
+      return await Trip.findOne({ tripname: tripname }).populate("posts");
     },
 
-    posts: async (parent, { tripname }) => {
-      const params = tripname ? { tripname } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+    posts: async (parent, { title }) => {
+      const params = title ? { title } : {};
+      return await Post.find(params).sort({ createdAt: -1 });
     },
 
     post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
+      return await Post.findOne({ _id: postId });
     },
   },
 
@@ -54,8 +54,7 @@ const resolvers = {
       return { token, user };
     },
 
-    addPost: async (parent, { title, postBody }, context) => {
-      // console.log(title, postBody, context.user);
+    addPost: async (parent, { tripId, title, postBody }, context) => {
       if (context.user) {
         const post = await Post.create(
           {
@@ -67,13 +66,17 @@ const resolvers = {
             new: true,
           }
         );
-
+        const trip = await Trip.findOneAndUpdate(
+          { _id: tripId },
+          { $addToSet: { posts: post._id } },
+          { new: true }
+        );
         // await User.findOneAndUpdate(
         //   { _id: context.user._id },
         //   { $addToSet: { posts: post._id } }
         // );
 
-        return post;
+        return { trip, post };
       }
       throw new AuthenticationError("You need to be logged in!");
     },

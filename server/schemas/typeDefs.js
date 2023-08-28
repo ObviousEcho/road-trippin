@@ -10,11 +10,11 @@ const typeDefs = gql`
 
   type Post {
     _id: ID
-    title: String!
-    postBody: String!
-    postAuthor: String!
-    createdAt: String!
-    comments: [Comment]!
+    title: String
+    postBody: String
+    postAuthor: String
+    createdAt: String
+    comments: [Comment]
   }
 
   type Comment {
@@ -38,14 +38,19 @@ const typeDefs = gql`
   type Query {
     trips: [Trip]
     trip(tripname: String!): Trip
-    posts(tripname: String): [Post]
+    posts(title: String!): [Post]
     post(postId: ID!): Post
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addPost(title: String!, postBody: String!): Post
+    addPost(
+      tripId: ID!
+      title: String
+      postBody: String
+      postAuthor: String
+    ): Post
     addComment(postId: ID!, commentText: String!, createdAt: String): Post
     removePost(postId: ID!): Post
     removeComment(postId: ID!, commentId: ID!): Post

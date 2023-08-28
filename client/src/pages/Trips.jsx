@@ -13,7 +13,6 @@ const Dashboard = () => {
     // pass URL parameter
     variables: { tripsId: tripsId },
   });
-
   const trips = data?.trips || {};
 
   if (loading) {
@@ -24,9 +23,7 @@ const Dashboard = () => {
     <div>
       {/* Past Trips */}
       <div>
-        <ul
-          className="grid gap-4 text-center mt-4 list-inside list-none"
-        >
+        <ul className="grid gap-4 text-center mt-4 list-inside list-none">
           <li>
             <TripsList tripname={trips.tripname} />
           </li>

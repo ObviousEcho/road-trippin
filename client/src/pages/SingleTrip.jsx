@@ -8,24 +8,26 @@ import PostForm from "../components/PostForm";
 import { QUERY_TRIP } from "../utils/queries";
 
 const TripPostForm = () => {
-  const { tripname: tripParam } = useParams();
-  
+  const { tripname } = useParams();
+  const arr = tripname.split(" ");
+  const tName = arr[0];
+  const tId = arr[1];
+
   const { loading, data } = useQuery(QUERY_TRIP, {
-    variables: { tripname: tripParam },
+    variables: { tripname: tName },
   });
 
   const trip = data?.trip || {};
-
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="m-3">
-      <PostForm title={tripParam} />
+      <PostForm title={tName} tripId={tId} />
       <div>
         <h3 className="text-2xl">
-          Posts associated with your trip to {tripParam}:
+          Posts associated with your trip to {tName}:
         </h3>
       </div>
 

@@ -3,7 +3,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_POST } from "../utils/mutations";
 import Auth from "../utils/auth";
 
-const PostForm = ({ title }) => {
+const PostForm = ({ title, tripId }) => {
   const [postState, setpostState] = useState("");
 
   const [addPost, { error }] = useMutation(ADD_POST);
@@ -19,15 +19,25 @@ const PostForm = ({ title }) => {
   const handlePostSubmit = async (event) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log(title, postState);
     try {
+      console.log({
+        tripId,
+        title,
+        postBody: postState,
+        postAuthor: Auth.getProfile().data.username,
+      });
+
       const { data } = await addPost({
         variables: {
-          title,
+          tripId: tripId,
+          title: title,
           postBody: postState,
+          postAuthor: Auth.getProfile().data.username,
         },
       });
+
       console.log(data);
+
       if (!data) {
         throw new Error("something went wrong");
       }

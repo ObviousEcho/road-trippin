@@ -8,8 +8,6 @@ const AppNavbar = () => {
 
   const handleClick = (e) => {
     e.preventDefault();
-    console.log("handleClick called");
-    console.log("isModalOpen:", isModalOpen);
     setIsModalOpen(true);
   };
 

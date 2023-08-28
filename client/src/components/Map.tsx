@@ -73,13 +73,10 @@ const Map = ({ destination }) => {
     const { lat, lng } = await getLatLng(results[0]);
     setDestLat(lat);
     setDestLng(lng);
-    console.log(destLat, destLng);
   };
 
   // function required for TrafficLayer component to display color coded conditions
-  const onLoad = (trafficLayer: any) => {
-    console.log("trafficLayer: ", trafficLayer);
-  };
+  const onLoad = (trafficLayer: any) => {};
 
   //   load map with api key
   const { isLoaded } = useLoadScript({
@@ -119,7 +116,6 @@ const Map = ({ destination }) => {
             }}
             callback={(response) => {
               if (response) {
-                console.log(response);
                 setDistance(response.rows[0].elements[0].distance.text);
                 setDuration(response.rows[0].elements[0].duration.text);
               }

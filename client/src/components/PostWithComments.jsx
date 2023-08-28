@@ -1,12 +1,11 @@
 import React from "react";
 
 const PostWithComments = ({ post }) => {
-    const comments = post.comments;
-    console.log(comments);
+  const comments = post.comments;
 
-//   if (!post.length) {
-//     return <h3>No Post to display</h3>;
-//   }
+  //   if (!post.length) {
+  //     return <h3>No Post to display</h3>;
+  //   }
 
   return (
     <div className="border-2 m-3 p-3">

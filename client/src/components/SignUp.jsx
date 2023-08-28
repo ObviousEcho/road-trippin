@@ -28,7 +28,6 @@ const SignUp = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    console.log(formState);
     // Extract the values from the form state
     // const { username, email, password } = formState;
 
